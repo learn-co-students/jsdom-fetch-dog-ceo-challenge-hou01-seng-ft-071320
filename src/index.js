@@ -63,20 +63,20 @@ const enableAlphabeticFilter = () => {
     })
 }
 
-const getFilteredBreeds = (startingLetter) => {
+const getFilteredBreeds = (letter) => {
     fetch(breedUrl)
     .then(res => res.json())
     // .then(console.log)
     .then(breeds => {
         let breedNames = breeds.message
         for (const breed in breedNames) {
-            appendFilteredBreed(breed, startingLetter)
+            appendFilteredBreed(breed, letter)
         }
     })
 }
 
-const appendFilteredBreed = (breed, startingLetter) => {
-    if (breed[0] === startingLetter) {
-        appendBreed(breed)
+const appendFilteredBreed = (singleBreed, letter) => {
+    if (singleBreed[0] === letter) {
+        appendBreed(singleBreed)
     }
 }
